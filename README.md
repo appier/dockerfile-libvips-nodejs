@@ -1,4 +1,4 @@
-# [Dockerfile](https://registry.hub.docker.com/u/appier/libvips-iojs/) for libvips + io.js
+# [Dockerfile](./Dockerfile) for libvips + io.js
 
 [marcbachmann/libvips](https://registry.hub.docker.com/u/marcbachmann/libvips/) (Ubuntu 14.04) is used as base image.
 
