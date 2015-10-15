@@ -4,7 +4,9 @@
 
 ## Supported tags
 
-- [`latest`, `2.5.0_latest`](https://github.com/appier/dockerfile-libvips-iojs/tree/master) - io.js 2.5.0 + libvips latest
+- [`2.5.0`](https://github.com/appier/dockerfile-libvips-iojs/tree/2.5.0) - io.js 2.5.0 + libvips 8.1.0
+- [`4.2.1`](https://github.com/appier/dockerfile-libvips-iojs/tree/4.2.1) - node 4.2.1 + libvips 8.1.0
+- [`latest`, `4.2.1`](https://github.com/appier/dockerfile-libvips-iojs/tree/master) - node 4.2.1 + libvips 8.1.0
 
 ## How to use
 
