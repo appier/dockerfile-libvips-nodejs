@@ -17,6 +17,7 @@ RUN \
     autoconf \
     pkg-config \
     curl \
+    libmagickwand-dev \
     imagemagick
 
 # Install node.js
