@@ -17,6 +17,7 @@ RUN \
     autoconf \
     pkg-config \
     curl \
+    git \
     libmagickwand-dev \
     imagemagick
 
