@@ -1,30 +1,18 @@
-# base image: ubuntu:14.04
-# ref: https://github.com/marcbachmann/dockerfile-libvips
-FROM marcbachmann/libvips
+FROM ubuntu:14.04
 MAINTAINER Archie Lee (archielee@appier.com)
 
-RUN \
-  apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    make \
-    automake \
-    gcc \
-    build-essential \
-    g++ \
-    cpp \
-    libc6-dev \
-    man-db \
-    autoconf \
-    pkg-config \
-    curl \
-    git \
-    libmagickwand-dev \
-    imagemagick
+# libvips 8.3.1
+# https://github.com/marcbachmann/dockerfile-libvips/blob/master/Dockerfile
+ENV LIBVIPS_VERSION_MAJOR 8
+ENV LIBVIPS_VERSION_MINOR 3
+ENV LIBVIPS_VERSION_PATCH 1
+ENV LIBVIPS_VERSION $LIBVIPS_VERSION_MAJOR.$LIBVIPS_VERSION_MINOR.$LIBVIPS_VERSION_PATCH
 
-# Install node.js, follow code copy from:
+# node.js 6.2.2
 # https://github.com/nodejs/docker-node/blob/master/6.2/Dockerfile
+ENV NPM_CONFIG_LOGLEVEL info
+ENV NODE_VERSION 6.2.2
 
-# gpg keys listed at https://github.com/nodejs/node
 RUN set -ex \
   && for key in \
     9554F04D7259F04124DE6B476D5A82AC7E37093B \
@@ -39,8 +27,44 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
-ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 6.2.2
+RUN apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    libcfitsio3-dev \
+    libopenslide-dev \
+    libpango1.0-dev \
+    libmatio-dev \
+    swig \
+    libxml2-dev \
+    libexif-dev \
+    libtiff5-dev \
+    gobject-introspection \
+    libglib2.0-dev \
+    libjpeg-turbo8-dev \
+    gtk-doc-tools \
+    make \
+    libpng12-dev \
+    automake \
+    gcc \
+    build-essential \
+    g++ \
+    cpp \
+    libwebp-dev \
+    libc6-dev \
+    man-db \
+    autoconf \
+    pkg-config \
+    curl \
+    git \
+    libmagickwand-dev \
+    imagemagick
+
+RUN curl -O http://www.vips.ecs.soton.ac.uk/supported/$LIBVIPS_VERSION_MAJOR.$LIBVIPS_VERSION_MINOR/vips-$LIBVIPS_VERSION.tar.gz \
+  && tar zvxf vips-$LIBVIPS_VERSION.tar.gz \
+  && cd vips-$LIBVIPS_VERSION \
+  && ./configure --enable-debug=no --without-python --without-orc --without-fftw --without-gsf $1 \
+  && make \
+  && make install \
+  && ldconfig
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \
@@ -48,5 +72,11 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
   && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
+
+RUN apt-get remove -y curl build-essential \
+  && apt-get autoremove -y \
+  && apt-get autoclean \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 CMD [ "node" ]
