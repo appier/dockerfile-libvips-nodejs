@@ -3,6 +3,7 @@
 
 [![ Stars](https://img.shields.io/docker/stars/appier/libvips-iojs.svg?maxAge=2592000)]()
 [![Docker Pulls](https://img.shields.io/docker/pulls/appier/libvips-iojs.svg?maxAge=2592000)]()
+[![](https://images.microbadger.com/badges/image/appier/libvips-iojs.svg)](https://microbadger.com/images/appier/libvips-iojs "Get your own image badge on microbadger.com")
 
 Docker Hub: [appier/libvips-iojs](https://hub.docker.com/r/appier/libvips-iojs/)
 
