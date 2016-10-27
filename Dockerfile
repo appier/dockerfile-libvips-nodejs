@@ -13,13 +13,19 @@ RUN \
   # Install dependencies
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y \
+  autoconf \
   automake \
   build-essential \
+  cpp \
   curl \
+  g++ \
+  gcc \
+  git \
   fftw3-dev \
   gobject-introspection \
   gtk-doc-tools \
   imagemagick \
+  libc6-dev \
   libcfitsio3-dev \
   libexif-dev \
   libgif-dev \
@@ -37,6 +43,9 @@ RUN \
   libtiff5-dev \
   libwebp-dev \
   libxml2-dev \
+  make \
+  man-db \
+  pkg-config \
   swig \
   && \
 
