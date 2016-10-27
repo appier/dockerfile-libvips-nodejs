@@ -51,7 +51,7 @@ RUN \
   ldconfig && \
 
   # Clean up
-  apt-get remove -y curl automake build-essential && \
+  apt-get remove -y automake build-essential && \
   apt-get autoremove -y && \
   apt-get autoclean && \
   apt-get clean && \
