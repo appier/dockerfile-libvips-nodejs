@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:trusty
 MAINTAINER Archie Lee (archielee@appier.com)
 
 ###
@@ -50,7 +50,6 @@ RUN \
   pkg-config \
   swig \
   && \
-
   # Build libvips
   cd /tmp && \
   curl -O http://www.vips.ecs.soton.ac.uk/supported/$LIBVIPS_VERSION_MAJOR.$LIBVIPS_VERSION_MINOR/vips-$LIBVIPS_VERSION.tar.gz && \
@@ -60,7 +59,6 @@ RUN \
   make && \
   make install && \
   ldconfig && \
-
   # Clean up
   apt-get remove -y automake build-essential && \
   apt-get autoremove -y && \
