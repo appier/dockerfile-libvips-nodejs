@@ -1,6 +1,6 @@
 # [Dockerfile](./Dockerfile) for libvips + node.js
-[![dockeri.co](http://dockeri.co/image/appier/libvips-nodejs)](https://registry.hub.docker.com/appier/libvips-nodejs/)
 
+[![dockeri.co](http://dockeri.co/image/appier/libvips-nodejs)](https://hub.docker.com/r/appier/libvips-nodejs/)
 [![ Stars](https://img.shields.io/docker/stars/appier/libvips-nodejs.svg?maxAge=2592000)]()
 [![Docker Pulls](https://img.shields.io/docker/pulls/appier/libvips-nodejs.svg?maxAge=2592000)]()
 [![](https://images.microbadger.com/badges/image/appier/libvips-nodejs.svg)](https://microbadger.com/images/appier/libvips-nodejs "Get your own image badge on microbadger.com")
