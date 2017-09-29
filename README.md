@@ -22,7 +22,8 @@ Docker Hub: [appier/libvips-nodejs](https://hub.docker.com/r/appier/libvips-node
 - [`6.9.1`](https://github.com/appier/dockerfile-libvips-nodejs/tree/6.9.1_8.4.1) - node 6.9.1 + libvips 8.4.1
 - [`6.11.1_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/6.11.1_8.4.5) - node 6.11.1 + libvips 8.4.5
 - [`8.2.1_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/8.2.1_8.4.5) - node 8.2.1 + libvips 8.4.5
-- [`8.5.0_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/8.5.0_8.4.5) - node 8.5.0 + libvips 8.4.5 ([`latest`](https://github.com/appier/dockerfile-libvips-nodejs/tree/master))
+- [`8.5.0_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/8.5.0_8.4.5) - node 8.5.0 + libvips 8.4.5
+- [`8.6.0_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/8.5.0_8.4.5) - node 8.6.0 + libvips 8.4.5 ([`latest`](https://github.com/appier/dockerfile-libvips-nodejs/tree/master))
 
 ## How to use
 
@@ -36,3 +37,4 @@ $ docker pull appier/libvips-nodejs
 ## License
 
 Licensed under [MIT](http://opensource.org/licenses/mit-license.html)
+
