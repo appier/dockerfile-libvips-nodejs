@@ -14,58 +14,57 @@ ENV LIBVIPS_VERSION $LIBVIPS_VERSION_MAJOR.$LIBVIPS_VERSION_MINOR.$LIBVIPS_VERSI
 
 RUN \
   # Install dependencies
-  apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  autoconf \
-  automake \
-  build-essential \
-  cpp \
-  curl \
-  g++ \
-  gcc \
-  git \
-  fftw3-dev \
-  gobject-introspection \
-  gtk-doc-tools \
-  imagemagick \
-  libc6-dev \
-  libcfitsio3-dev \
-  libexif-dev \
-  libgif-dev \
-  libglib2.0-dev \
-  libgsf-1-dev \
-  libjpeg-turbo8-dev \
-  libmagickwand-dev \
-  libmatio-dev \
-  libopenslide-dev \
-  liborc-0.4-dev \
-  libpango1.0-dev \
-  libpng12-dev \
-  libpoppler-glib-dev \
-  librsvg2-dev \
-  libtiff5-dev \
-  libwebp-dev \
-  libxml2-dev \
-  make \
-  man-db \
-  pkg-config \
-  swig \
-  && \
+  apt-get update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    autoconf \
+    automake \
+    build-essential \
+    cpp \
+    curl \
+    g++ \
+    gcc \
+    git \
+    fftw3-dev \
+    gobject-introspection \
+    gtk-doc-tools \
+    imagemagick \
+    libc6-dev \
+    libcfitsio3-dev \
+    libexif-dev \
+    libgif-dev \
+    libglib2.0-dev \
+    libgsf-1-dev \
+    libjpeg-turbo8-dev \
+    libmagickwand-dev \
+    libmatio-dev \
+    libopenslide-dev \
+    liborc-0.4-dev \
+    libpango1.0-dev \
+    libpng12-dev \
+    libpoppler-glib-dev \
+    librsvg2-dev \
+    libtiff5-dev \
+    libwebp-dev \
+    libxml2-dev \
+    make \
+    man-db \
+    pkg-config \
+    swig \
   # Build libvips
-  cd /tmp && \
-  curl -LJO https://cdn.rawgit.com/jcupitt/libvips/releases/download/v${LIBVIPS_VERSION}/vips-${LIBVIPS_VERSION}.tar.gz \
-  tar zvxf vips-${LIBVIPS_VERSION}.tar.gz && \
-  cd /tmp/vips-${LIBVIPS_VERSION} && \
-  ./configure --enable-debug=no --without-python $1 && \
-  make && \
-  make install && \
-  ldconfig && \
+  && cd /tmp \
+  && curl -LJO https://cdn.rawgit.com/jcupitt/libvips/releases/download/v${LIBVIPS_VERSION}/vips-${LIBVIPS_VERSION}.tar.gz \
+  && tar zvxf vips-${LIBVIPS_VERSION}.tar.gz \
+  && cd /tmp/vips-${LIBVIPS_VERSION}  \
+  && ./configure --enable-debug=no --without-python $1 \
+  && make \
+  && make install \
+  && ldconfig \
   # Clean up
-  apt-get remove -y automake build-essential && \
-  apt-get autoremove -y && \
-  apt-get autoclean && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  && apt-get remove -y automake build-essential \
+  && apt-get autoremove -y \
+  && apt-get autoclean \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ###
 # node.js, original copied from:
