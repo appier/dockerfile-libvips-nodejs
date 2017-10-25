@@ -1,9 +1,10 @@
+# Ubuntu Trusty 14.04 LTS
 FROM ubuntu:trusty
 MAINTAINER Archie Lee (archielee@appier.com)
 
 ###
-# libvips
-# copy from https://github.com/marcbachmann/dockerfile-libvips/blob/8.4.1/Dockerfile
+# libvips, original copied from:
+# https://github.com/marcbachmann/dockerfile-libvips/blob/8.4.1/Dockerfile
 ###
 
 ENV LIBVIPS_VERSION_MAJOR 8
@@ -67,8 +68,8 @@ RUN \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ###
-# node.js
-# copy from https://github.com/nodejs/docker-node/blob/master/8.6/Dockerfile
+# node.js, original copied from:
+# https://github.com/nodejs/docker-node/blob/master/8.6/Dockerfile
 ###
 
 RUN groupadd --gid 1000 node \
@@ -92,7 +93,7 @@ RUN set -ex \
   done
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 8.6.0
+ENV NODE_VERSION 8.8.0
 
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
@@ -111,7 +112,7 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && rm "node-v$NODE_VERSION-linux-$ARCH.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
-ENV YARN_VERSION 1.1.0
+ENV YARN_VERSION 1.2.1
 
 RUN set -ex \
   && for key in \
