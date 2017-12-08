@@ -25,7 +25,8 @@ Docker Hub: [appier/libvips-nodejs](https://hub.docker.com/r/appier/libvips-node
 - [`8.5.0_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/8.5.0_8.4.5) - node 8.5.0 + libvips 8.4.5
 - [`8.6.0_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/8.6.0_8.4.5) - node 8.6.0 + libvips 8.4.5
 - [`8.8.0_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/8.8.0_8.4.5) - node 8.8.0 + libvips 8.4.5
-- [`8.9.2_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/8.9.2_8.4.5) - node 8.9.2 + libvips 8.4.5 ([`latest`](https://github.com/appier/dockerfile-libvips-nodejs/tree/master))
+- [`8.9.2_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/8.9.2_8.4.5) - node 8.9.2 + libvips 8.4.5
+- [`9.2.0_8.4.5`](https://github.com/appier/dockerfile-libvips-nodejs/tree/9.2.0_8.4.5) - node 9.2.0 + libvips 8.4.5 ([`latest`](https://github.com/appier/dockerfile-libvips-nodejs/tree/master))
 
 ## How to use
 

@@ -64,7 +64,7 @@ RUN apt-get update \
 
 ###
 # node.js, original copied from:
-# https://github.com/nodejs/docker-node/blob/master/8/Dockerfile
+# https://github.com/nodejs/docker-node/blob/master/9/Dockerfile
 ###
 
 RUN groupadd --gid 1000 node \
@@ -87,7 +87,7 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key" ; \
   done
 
-ENV NODE_VERSION 8.9.2
+ENV NODE_VERSION 9.2.0
 
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
